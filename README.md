@@ -2,6 +2,8 @@
 
 **LIV EM** is a sophisticated personal growth ecosystem built with **Kotlin Multiplatform (KMP)**. It bridges the gap between productivity tracking and emotional reflection by using a specialized **AI Agentic Framework** to analyze the alignment between your actions and your internal state.
 
+**App Demo Video** https://drive.google.com/drive/folders/1bne-hLk0hAuZQEtYbvwwPyjnjUo2i8If
+
 <div align="center">
   <h3>📱 App Screenshots</h3>
 
