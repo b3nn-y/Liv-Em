@@ -28,7 +28,20 @@
 </div>
 
 ---
+##Features to test for
 
+-Currently the Journaling and Daily ToDos are fully completed.
+-Journaling modules has an advanced search and sorting impl to search for your story.
+-You can create tasks and manage you day.
+-Based on your journals, and task completion rate, you can generate a report, which will give you a full analysis, and steps to take next.
+
+
+Upcoming Features-
+-Talk to your past self, based on the journals.
+-Creation of threads. Connecting journals that have a link/continuation.
+-Ai Fitness coach. and workout plans.
+-Home tab, data population.
+-Weekly and monthly reports.
 
 
 ## 🚀 Key Features
@@ -79,6 +92,8 @@ LIV EM utilizes a strict **Unidirectional Data Flow (UDF)**:
 4.  **Composition:** The UI reacts to state changes, automatically triggering Material 3 BottomSheets when analysis completes.
 
 ---
+
+
 
 **Please add your GEMINI API to the AiReflectionService() class before testing.
 **
