@@ -2,16 +2,30 @@
 
 **LIV EM** is a sophisticated personal growth ecosystem built with **Kotlin Multiplatform (KMP)**. It bridges the gap between productivity tracking and emotional reflection by using a specialized **AI Agentic Framework** to analyze the alignment between your actions and your internal state.
 
-![1s](https://github.com/user-attachments/assets/e87fb564-b49a-47f2-b695-0155ee5feb25)
-![2s](https://github.com/user-attachments/assets/22d4adb9-aafb-4382-a0eb-b4ff13700628)
-![3s](https://github.com/user-attachments/assets/4d6c93b3-edd6-4f17-b1f3-b2f91c42da48)
-![5s](https://github.com/user-attachments/assets/16cd95d5-64de-4b3a-8c6e-56c2144265c2)
-![3s2](https://github.com/user-attachments/assets/41d3d76c-90e9-4b7f-9f85-c8b161f76273)
-![2s2](https://github.com/user-attachments/assets/117a6059-0d66-4936-bdb2-ed4045aa4509)
-![6s](https://github.com/user-attachments/assets/c1f0c236-3f79-431e-ab64-73a86782cd2b)
-![7s](https://github.com/user-attachments/assets/7a000898-1bd5-482f-9381-8503c5d4f026)
-![1s2](https://github.com/user-attachments/assets/fd352c66-d706-4c32-a930-71bb7c15a86f)
-![1s23](https://github.com/user-attachments/assets/ee68e0b6-d78e-4320-875e-7d106aca4696)
+<div align="center">
+  <h3>📱 App Screenshots</h3>
+
+  <table>
+    <tr>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/e87fb564-b49a-47f2-b695-0155ee5feb25" alt="Home Screen"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/22d4adb9-aafb-4382-a0eb-b4ff13700628" alt="Journal List"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/4d6c93b3-edd6-4f17-b1f3-b2f91c42da48" alt="Missions"></td>
+    </tr>
+    <tr>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/16cd95d5-64de-4b3a-8c6e-56c2144265c2" alt="Locked Reports"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/41d3d76c-90e9-4b7f-9f85-c8b161f76273" alt="Analysis"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/117a6059-0d66-4936-bdb2-ed4045aa4509" alt="Missions List"></td>
+    </tr>
+    <tr>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/c1f0c236-3f79-431e-ab64-73a86782cd2b" alt="AI Review"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/7a000898-14de-4b3a-8c6e-56c2144265c2" alt="Calendar Streak"></td>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/fd352c66-d706-4c32-a930-71bb7c15a86f" alt="Report Result"></td>
+    </tr>
+    <tr>
+      <td width="33%"><img src="https://github.com/user-attachments/assets/ee68e0b6-d78e-4320-875e-7d106aca4696" alt="Final UI"></td>
+      <td width="33%"></td> <td width="33%"></td> </tr>
+  </table>
+</div>
 
 ---
 
@@ -66,6 +80,8 @@ LIV EM utilizes a strict **Unidirectional Data Flow (UDF)**:
 
 ---
 
+**Please add your GEMINI API to the AiReflectionService() class before testing.
+**
 ## ⚙️ Build & Configuration
 
 ### For Android
