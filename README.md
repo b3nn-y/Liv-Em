@@ -49,6 +49,7 @@
 ## 🗺️ Upcoming Features
 
 ### **Phase 1: Deep Reflection & Organization**
+- [ ] **On Device AI:** For privacy reasons, using on device ai models.
 - [ ] **Talk to Your Past Self:** An AI-powered interaction mode where you can "chat" with the person you were months ago based on your stored journals.
 - [ ] **Creation of Threads:** Link related journals together to create a continuation of a specific thought or life event.
 
