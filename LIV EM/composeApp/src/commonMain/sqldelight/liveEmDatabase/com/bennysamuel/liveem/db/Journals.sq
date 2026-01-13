@@ -1,0 +1,197 @@
+import kotlin.Boolean;
+
+CREATE TABLE JournalEntry (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    tags TEXT, -- Stored as a comma-separated string (e.g., "Mindfulness,Work,Travel")
+    isFavorite INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    createdAt INTEGER NOT NULL
+);
+
+CREATE TABLE JournalBlock (
+    id TEXT NOT NULL PRIMARY KEY,
+    entryId TEXT NOT NULL,
+    blockType TEXT NOT NULL,
+    content TEXT,
+    sortOrder INTEGER NOT NULL,
+    FOREIGN KEY (entryId) REFERENCES JournalEntry(id) ON DELETE CASCADE
+);
+
+CREATE TABLE BlockImage (
+    id TEXT NOT NULL PRIMARY KEY,
+    blockId TEXT NOT NULL,
+    imageData BLOB NOT NULL,
+    FOREIGN KEY (blockId) REFERENCES JournalBlock(id) ON DELETE CASCADE
+);
+
+-- --- WRITES ---
+
+-- Updated to include tags
+insertEntry:
+INSERT INTO JournalEntry(id, title, tags, isFavorite, createdAt)
+VALUES (?, ?, ?, ?, ?);
+
+insertBlock:
+INSERT INTO JournalBlock(id, entryId, blockType, content, sortOrder)
+VALUES (?, ?, ?, ?, ?);
+
+insertImage:
+INSERT INTO BlockImage(id, blockId, imageData)
+VALUES (?, ?, ?);
+
+-- Updated to allow updating tags alongside title and favorite status
+updateEntry:
+UPDATE JournalEntry
+SET title = ?, tags = ?, isFavorite = ?
+WHERE id = ?;
+
+updateFavorite:
+UPDATE JournalEntry
+SET isFavorite = ?
+WHERE id = ?;
+
+-- --- READS ---
+
+getEntries:
+SELECT * FROM JournalEntry
+ORDER BY createdAt DESC;
+
+getFavorites:
+SELECT * FROM JournalEntry
+WHERE isFavorite = 1
+ORDER BY createdAt DESC;
+
+getBlocks:
+SELECT * FROM JournalBlock
+WHERE entryId = ?
+ORDER BY sortOrder ASC;
+
+getImagesForBlock:
+SELECT * FROM BlockImage
+WHERE blockId = ?;
+
+countEntriesInRange:
+SELECT COUNT(*)
+FROM JournalEntry
+WHERE createdAt >= ? AND createdAt <= ?;
+
+-- Efficient fetch for the Home Feed with Tags and Text Preview
+getEntriesWithPreview:
+SELECT
+    JournalEntry.*,
+    JournalBlock.content AS previewContent
+FROM JournalEntry
+LEFT JOIN JournalBlock ON JournalBlock.id = (
+    SELECT id FROM JournalBlock
+    WHERE entryId = JournalEntry.id AND blockType = 'TEXT'
+    ORDER BY sortOrder ASC LIMIT 1
+)
+ORDER BY createdAt DESC;
+
+-- Search logic for filtering by a specific tag
+searchByTag:
+SELECT * FROM JournalEntry
+WHERE tags LIKE ('%' || ? || '%')
+ORDER BY createdAt DESC;
+
+-- --- DELETES ---
+
+deleteEntry:
+DELETE FROM JournalEntry
+WHERE id = ?;
+
+deleteBlocksForEntry:
+DELETE FROM JournalBlock
+WHERE entryId = ?;
+
+getTodayEntryId:
+SELECT id
+FROM JournalEntry
+WHERE createdAt >= ? AND createdAt <= ?
+ORDER BY createdAt DESC
+LIMIT 1;
+
+getEntryById:
+SELECT * FROM JournalEntry
+WHERE id = ?;
+
+
+searchEverything:
+SELECT JournalEntry.*, JournalBlock.content AS previewContent
+FROM JournalEntry
+LEFT JOIN JournalBlock ON JournalBlock.entryId = JournalEntry.id
+WHERE
+    JournalEntry.title LIKE ('%' || :query || '%') OR
+    JournalEntry.tags LIKE ('%' || :query || '%') OR
+    JournalBlock.content LIKE ('%' || :query || '%')
+GROUP BY JournalEntry.id
+ORDER BY JournalEntry.createdAt DESC;
+
+
+
+
+
+
+
+CREATE TABLE DailyTask (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    isCompleted INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    targetTime TEXT,
+    createdAt INTEGER NOT NULL
+);
+
+insertTask:
+INSERT INTO DailyTask(id, title, isCompleted, targetTime, createdAt)
+VALUES (?, ?, ?, ?, ?);
+
+updateTaskStatus:
+UPDATE DailyTask SET isCompleted = ? WHERE id = ?;
+
+deleteTask:
+DELETE FROM DailyTask WHERE id = ?;
+
+getAllTasks:
+SELECT * FROM DailyTask ORDER BY createdAt DESC;
+
+clearCompleted:
+DELETE FROM DailyTask WHERE isCompleted = 1;
+
+getTodaysActiveAndRollover:
+SELECT * FROM DailyTask
+WHERE isCompleted = 0 OR (createdAt >= ? AND createdAt <= ?)
+ORDER BY isCompleted ASC, targetTime ASC;
+
+
+getTasksByDateRange:
+SELECT * FROM DailyTask
+WHERE createdAt >= ? AND createdAt <= ?
+ORDER BY targetTime ASC;
+
+
+
+CREATE TABLE ReviewReport (
+    id TEXT NOT NULL PRIMARY KEY,
+    reportType TEXT NOT NULL, -- 'WEEKLY' or 'MONTHLY'
+    content TEXT NOT NULL,
+    startDate INTEGER NOT NULL,
+    endDate INTEGER NOT NULL,
+    createdAt INTEGER NOT NULL
+);
+
+
+getReports:
+SELECT * FROM ReviewReport ORDER BY createdAt DESC;
+
+getLatestReportByType:
+SELECT * FROM ReviewReport WHERE reportType = ? ORDER BY endDate DESC LIMIT 1;
+
+insertReport:
+INSERT INTO ReviewReport(id, reportType, content, startDate, endDate, createdAt)
+VALUES (?, ?, ?, ?, ?, ?);
+
+-- --- READS ---
+getAllReports:
+SELECT * FROM ReviewReport
+ORDER BY createdAt DESC;
+
