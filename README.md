@@ -28,20 +28,38 @@
 </div>
 
 ---
-##Features to test for
+# 📔 LIV EM: AI Life Architect
 
--Currently the Journaling and Daily ToDos are fully completed.
--Journaling modules has an advanced search and sorting impl to search for your story.
--You can create tasks and manage you day.
--Based on your journals, and task completion rate, you can generate a report, which will give you a full analysis, and steps to take next.
+**LIV EM** is a professional-grade personal growth ecosystem built with **Kotlin Multiplatform (KMP)**. It bridges the gap between productivity tracking and emotional reflection by using a specialized **AI Agentic Framework** to analyze the alignment between your actions and your internal state.
 
+---
 
-Upcoming Features-
--Talk to your past self, based on the journals.
--Creation of threads. Connecting journals that have a link/continuation.
--Ai Fitness coach. and workout plans.
--Home tab, data population.
--Weekly and monthly reports.
+## 🚀 Features to Explore
+
+* **🔥 Everyday Streaks:** Stay consistent! The app tracks your daily activity. Complete a mission or write a journal to maintain and grow your streak.
+* **✅ Holistic Management:** * **Journaling:** Capture your story with full-featured entries.
+    * **Daily ToDos:** Manage your day by creating, tracking, and completing missions.
+* **🔍 Advanced Story Search:** Navigate your past with ease. The Journaling module includes advanced search and sorting implementation so you can find specific memories or themes instantly.
+* **🏷️ Custom Organization:** * Add **custom tags** to your journals for thematic sorting.
+    * **Bookmark/Favorite** specific entries to fetch your most important reflections easily.
+* **🧠 AI Life Analysis:** Leverage your data. Based on your journal sentiment and task completion rates, the app generates a **Comprehensive Report**, offering a deep analysis of your current state and clear strategic steps for your future.
+
+---
+
+## 🗺️ Upcoming Features
+
+### **Phase 1: Deep Reflection & Organization**
+- [ ] **Talk to Your Past Self:** An AI-powered interaction mode where you can "chat" with the person you were months ago based on your stored journals.
+- [ ] **Creation of Threads:** Link related journals together to create a continuation of a specific thought or life event.
+
+### **Phase 2: Health & Visualization**
+- [ ] **AI Fitness Coach:** Personalized workout plans and real-time coaching integrated with your lifestyle and movement data.
+- [ ] **Home Tab Data Population:** A fully dynamic dashboard giving you an "at-a-glance" view of your progress.
+
+### **Phase 3: Periodic Insights**
+- [ ] **Weekly & Monthly Reports:** Long-form automated summaries to track growth over larger time horizons.
+
+---
 
 
 ## 🚀 Key Features
